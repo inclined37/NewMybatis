@@ -57,7 +57,7 @@ public class CommonController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "common/main";
+		return "redirect:main";
 	}
 	
 	/*
