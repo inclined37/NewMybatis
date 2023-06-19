@@ -57,22 +57,7 @@ thead th {
 </head>
 <body>
 	<h1>Main Page</h1>
-
-	<form action="insert" method="post">
-		<input type="text" name="empno" placeholder="empno"><br> <input
-			type="text" name="ename" placeholder="ename"><br> <input
-			type="text" name="job" placeholder="job"><br> <input
-			type="text" name="mgr" placeholder="mgr"><br> <input
-			type="date" name="hiredate" placeholder="hiredate"><br>
-		<input type="text" name="sal" placeholder="sal"><br> <input
-			type="text" name="comm" placeholder="comm"><br> <input
-			type="text" name="deptno" placeholder="deptno"><br> <input
-			type="submit" value="사원등록하기"><br>
-	</form>
-
-
-
-
+	<button type="button" onclick="common/insert">사원등록</button>
 	<table>
 		<thead>
 
