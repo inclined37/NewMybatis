@@ -4,146 +4,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Employee Detail</title>
-<style type="text/css">
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-}
+    <meta charset="UTF-8">
+    <title>Employee Detail</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-h1 {
-    color: #333;
-}
+        h1 {
+            color: #333;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-}
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+        }
 
-th {
-    background-color: #f2f2f2;
-}
-thead th {
-    background-color: #f2f2f2;
-    border-bottom: 2px solid #ccc;
-    padding: 10px;
-    font-weight: bold;
-}
+        th {
+            background-color: #f2f2f2;
+        }
 
-form {
-    margin-top: 20px;
-}
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-.form-group {
-    margin-bottom: 10px;
-}
+        .form-group label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+            text-align: right;
+            margin-right: 20px;
+        }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
-}
+        .form-group input {
+            width: 300px;
+            padding: 5px;
+            font-size: 16px;
+        }
 
-.form-group input[type="text"],
-.form-group input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-group button {
-    padding: 8px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.form-group button:hover {
-    background-color: #45a049;
-}
-
-</style>
+        .form-group button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Employee Detail</h1>
-        
-        <table>
-            <tr>
-                <th>EmpNo</th>
-                <th>EmpName</th>
-                <th>Job</th>
-                <th>Manager</th>
-                <th>Hire Date</th>
-                <th>Salary</th>
-                <th>Commission</th>
-                <th>DeptNo</th>
-            </tr>
-            <tr>
-                <td>${employee.empNo}</td>
-                <td>${employee.empName}</td>
-                <td>${employee.job}</td>
-                <td>${employee.manager}</td>
-                <td>${employee.hireDate}</td>
-                <td>${employee.salary}</td>
-                <td>${employee.commission}</td>
-                <td>${employee.deptNo}</td>
-            </tr>
-        </table>
-        
-        <form action="/common/update" method="post">
-            <input type="hidden" name="empNo" value="${employee.empNo}">
+
+        <form action="/MybatisProject/common/update" method="post">
             <div class="form-group">
-                <label for="empName">Employee Name:</label>
-                <input type="text" id="empName" name="empName" value="${employee.empName}" required>
+                <label for="empNo">EMPNO:</label>
+                <input type="text" id="empNo" name="empno" value="${employee.empno}" readonly>
             </div>
             <div class="form-group">
-                <label for="job">Job:</label>
-                <input type="text" id="job" name="job" value="${employee.job}" required>
+                <label for="empName">ENAME:</label>
+                <input type="text" id="empName" name="ename" value="${employee.ename}">
             </div>
             <div class="form-group">
-                <label for="manager">Manager:</label>
-                <input type="text" id="manager" name="manager" value="${employee.manager}">
+                <label for="job">JOB:</label>
+                <input type="text" id="job" name="job" value="${employee.job}">
             </div>
             <div class="form-group">
-                <label for="hireDate">Hire Date:</label>
-                <input type="date" id="hireDate" name="hireDate" value="${employee.hireDate}" required>
+                <label for="mgr">MGR:</label>
+                <input type="text" id="mgr" name="mgr" value="${employee.mgr}">
             </div>
             <div class="form-group">
-                <label for="salary">Salary:</label>
-                <input type="text" id="salary" name="salary" value="${employee.salary}" required>
+                <label for="hireDate">HIREDATE:</label>
+                <input type="text" id="hireDate" name="hiredate" value="${employee.hiredate}">
             </div>
             <div class="form-group">
-                <label for="commission">Commission:</label>
-                <input type="text" id="commission" name="commission" value="${employee.commission}">
+                <label for="sal">SAL:</label>
+                <input type="text" id="sal" name="sal" value="${employee.sal}">
             </div>
             <div class="form-group">
-                <label for="deptNo">DeptNo:</label>
-                <input type="text" id="deptNo" name="deptNo" value="${employee.deptNo}" required>
+                <label for="comm">COMM:</label>
+                <input type="text" id="comm" name="comm" value="${employee.comm}">
             </div>
+            <div class="form-group">
+                <label for="deptNo">DEPTNO:</label>
+                <input type="text" id="deptNo" name="deptno" value="${employee.deptno}">
+            </div>
+
             <div class="form-group">
                 <button type="submit">Update</button>
+                <button type="button" onclick="location.href='/MybatisProject/common/main'">Back to Main</button>
             </div>
         </form>
     </div>

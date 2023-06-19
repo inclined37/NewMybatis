@@ -92,7 +92,7 @@ thead th {
 		<tbody>
 			<c:forEach items="${empList}" var="emp">
 				<tr>
-					 					<td>${emp.empno}</td>
+					<td>${emp.empno}</td>
 					<td>${emp.ename}</td>
 					<td>${emp.job}</td>
 					<td>${emp.mgr}</td>
@@ -110,7 +110,7 @@ thead th {
 					<td><input type="text" value="${emp.deptno}" readOnly></td>
  --%>
 					<td><button class="delete">X</button></td>
-					<td><button class="update">수정</button></td>
+					<td><button class="detail">수정</button></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -139,9 +139,12 @@ thead th {
 			});
 		});
 
-		$("update").click(function() {
-
-		})
+		$(".detail").click(function() {
+			  var empno = $(this).closest("tr").find("td:first").text();
+			  console.log("수정 버튼 클릭");
+			  console.log(empNo);
+			  window.location.href = "/MybatisProject/common/empDetail?empno=" + empno;
+		});
 	});
 </script>
 </html>

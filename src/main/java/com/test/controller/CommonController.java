@@ -69,16 +69,7 @@ public class CommonController {
 	}
 	*/
 	
-	@GetMapping("empDetail")
-	public String empDetail() {
-		
-		
-		return "common/empDetail";
-	}
-	
-	
-	
-	
+
 	
 	
 }
