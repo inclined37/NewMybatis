@@ -1,11 +1,19 @@
 package com.test.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.service.EmpService;
+import com.test.vo.Emp;
 
 @RestController
 public class ApiController {
@@ -31,4 +39,17 @@ public class ApiController {
         return "성공~";
     }
 	
+    @GetMapping("api/search")
+    public Map<Integer, List> getEmpListByEname(@RequestParam("ename") String ename, Model model){
+    	System.out.println("ename 으로 검색합니다");
+    	List<Emp> list = null;
+    	Map<Integer, List> map = new HashMap<Integer, List>();
+    	try {
+			list = empservice.getEmpListByEname(ename);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+    	map.put(1,list);
+    	return map;
+    }
 }

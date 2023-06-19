@@ -10,6 +10,8 @@ public interface EmpDao {
 	
 	public Emp getEmp(int empno);
 	
+	public List<Emp> getEmpListByEname(String ename);
+	
 	public int insertEmp(Emp emp);
 	
 	public int updateEmp(Emp emp);

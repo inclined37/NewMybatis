@@ -41,6 +41,17 @@ public class EmpService {
 		return emp;
 	}
 	
+	public List<Emp> getEmpListByEname(String ename){
+		List<Emp> list = null;
+		try {
+			EmpDao empDao = sqlsession.getMapper(EmpDao.class);
+			list = empDao.getEmpListByEname(ename);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return list;
+	}
+	
 	public int insertEmp(Emp emp) {
 		int result = 0;
 		try {
