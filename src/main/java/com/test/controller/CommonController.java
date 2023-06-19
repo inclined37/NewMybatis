@@ -60,14 +60,25 @@ public class CommonController {
 		return "common/main";
 	}
 	
-	@GetMapping("delete")
-	public String delete(int empno) {
-		System.out.println("delete: "+empno);
-		try {
-			empservice.deleteEmp(empno);
-		} catch (Exception e) {
-			e.getMessage();
-		}
-		return "common/main";
+	/*
+	@GetMapping("empDetail")
+	public String empDetail(int empno) {
+		
+		
+		return "detail?empno="+empno;
 	}
+	*/
+	
+	@GetMapping("empDetail")
+	public String empDetail() {
+		
+		
+		return "common/empDetail";
+	}
+	
+	
+	
+	
+	
+	
 }
