@@ -40,8 +40,8 @@ public class ApiController {
     }
 	
     @GetMapping("api/search")
-    public Map<Integer, List> getEmpListByEname(@RequestParam("ename") String ename, Model model){
-    	System.out.println("ename 으로 검색합니다");
+    public Map<Integer, List> getEmpListByEname(String ename){
+    	System.out.println("ename 으로 검색합니다"+ename);
     	List<Emp> list = null;
     	Map<Integer, List> map = new HashMap<Integer, List>();
     	try {
