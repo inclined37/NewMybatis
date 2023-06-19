@@ -39,10 +39,10 @@ public class ApiController {
         return "성공~";
     }
 	
-    @GetMapping("api/search")
+    @GetMapping(value = "api/search", produces = "application/json")
     public Map<Integer, List> getEmpListByEname(String ename){
     	System.out.println("ename 으로 검색합니다"+ename);
-    	List<Emp> list = null;
+    	List<Emp> list = new ArrayList<>();
     	Map<Integer, List> map = new HashMap<Integer, List>();
     	try {
 			list = empservice.getEmpListByEname(ename);

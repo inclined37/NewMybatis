@@ -13,11 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from emp where empno=#{empno}
 	</select>
 	
-	<select id="getEmpListByEname" resultType="com.test.vo.Emp">
-		SELECT *
-		FROM emp
-		WHERE UPPER(#{ename}) LIKE UPPER('%${ename}%');
-	</select>
+<select id="getEmpListByEname" parameterType="java.lang.String" resultType="com.test.vo.Emp">
+    SELECT *
+    FROM emp
+    WHERE UPPER(ename) LIKE '%' || UPPER(#{ename}) || '%'
+</select>
 	
 	<insert id="insertEmp" parameterType="com.test.vo.Emp">
 		insert into emp values(#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
