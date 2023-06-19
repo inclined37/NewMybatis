@@ -69,6 +69,7 @@ public class CommonController {
 	}
 	*/
 	
+
 	@GetMapping("empDetail")
 	public String empDetail(String empno, Model model) {
 		
@@ -85,6 +86,7 @@ public class CommonController {
 		model.addAttribute("employee", emp);
 		return "common/empDetail?empno="+empno;
 	}
+
 	
 	
 }
