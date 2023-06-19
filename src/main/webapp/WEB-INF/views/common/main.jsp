@@ -57,7 +57,7 @@ thead th {
 </head>
 <body>
 	<h1>Main Page</h1>
-	<button type="button" onclick="common/insert">사원등록</button>
+	<button type="button" onclick="window.location='insert'">사원등록</button>
 	<table>
 		<thead>
 

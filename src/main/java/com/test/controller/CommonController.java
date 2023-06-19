@@ -38,6 +38,13 @@ public class CommonController {
 		return "common/main";
 	}
 	
+	@GetMapping("insert")
+	public String insert() {
+		System.out.println("insert 페이지 이동 컨트롤러 진입");
+		//return "redirect:empInsert";
+		return "common/empInsert";
+	}
+	
 	@PostMapping("insert")
 	public String insert(Emp emp) {
 		System.out.println(emp.toString());
@@ -87,6 +94,5 @@ public class CommonController {
 		return "common/empDetail";
 	}
 
-	
 	
 }
