@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert Employee</title>
+<title>사원추가</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -58,33 +58,33 @@ input[type="submit"]:hover {
 </head>
 <body>
     <div class="container">
-        <h1>Insert Employee</h1>
+        <h1>사원추가</h1>
         <form action="insert" method="post">
-            <label for="empno">EmpNo:</label>
-            <input type="text" name="empno" id="empno" placeholder="EmpNo" required>
+            <label for="empno">사원번호 :</label>
+            <input type="text" name="empno" id="empno" placeholder="사원번호" required>
             
-            <label for="ename">EmpName:</label>
-            <input type="text" name="ename" id="ename" placeholder="EmpName" required>
+            <label for="ename">사원이름 :</label>
+            <input type="text" name="ename" id="ename" placeholder="사원이름" required>
             
-            <label for="job">Job:</label>
-            <input type="text" name="job" id="job" placeholder="Job" required>
+            <label for="job">직업 :</label>
+            <input type="text" name="job" id="job" placeholder="직책" required>
             
-            <label for="mgr">Manager:</label>
-            <input type="text" name="mgr" id="mgr" placeholder="Manager" required>
+            <label for="mgr">상사번호 :</label>
+            <input type="text" name="mgr" id="mgr" placeholder="상사번호" required>
             
-            <label for="hiredate">Hire Date:</label>
-            <input type="date" name="hiredate" id="hiredate" required>
+            <label for="hiredate">입사일 :</label>
+            <input type="date" name="hiredate" id="입사일" required>
             
-            <label for="sal">Salary:</label>
-            <input type="text" name="sal" id="sal" placeholder="Salary" required>
+            <label for="sal">연봉 :</label>
+            <input type="text" name="sal" id="sal" placeholder="연봉" required>
             
-            <label for="comm">Commission:</label>
-            <input type="text" name="comm" id="comm" placeholder="Commission" required>
+            <label for="comm">보너스 :</label>
+            <input type="text" name="comm" id="comm" placeholder="보너스" required>
             
-            <label for="deptno">DeptNo:</label>
-            <input type="text" name="deptno" id="deptno" placeholder="DeptNo" required>
+            <label for="deptno">부서번호 :</label>
+            <input type="text" name="deptno" id="deptno" placeholder="부서번호" required>
             
-            <input type="submit" value="Add Employee">
+            <input type="submit" value="사원 추가">
         </form>
     </div>
 </body>

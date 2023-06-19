@@ -1,9 +1,13 @@
 package com.test.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test.service.EmpService;
 import com.test.vo.Emp;
 
@@ -38,18 +43,27 @@ public class ApiController {
     	
         return "성공~";
     }
-	
-    @GetMapping(value = "api/search", produces = "application/json")
-    public Map<Integer, List> getEmpListByEname(String ename){
-    	System.out.println("ename 으로 검색합니다"+ename);
-    	List<Emp> list = new ArrayList<>();
-    	Map<Integer, List> map = new HashMap<Integer, List>();
-    	try {
-			list = empservice.getEmpListByEname(ename);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-    	map.put(1,list);
-    	return map;
+    
+    @GetMapping("api/search")
+    public void getEmpListByEname(String ename, HttpServletResponse response) {
+        System.out.println("ename으로 검색합니다: " + ename);
+        List<Emp> list = new ArrayList<>();
+        try {
+            list = empservice.getEmpListByEname(ename);
+
+            // JSON 형태로 응답 설정
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+
+            // List<Emp>를 JSON으로 변환하여 응답
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writeValue(response.getWriter(), list);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
+
+    
+    
+    
 }
