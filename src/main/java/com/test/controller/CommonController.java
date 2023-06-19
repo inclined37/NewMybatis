@@ -71,7 +71,7 @@ public class CommonController {
 	
 
 	@GetMapping("empDetail")
-	public String empDetail(String empno, Model model) {
+	public String empDetail(@RequestParam("empno")String empno, Model model) {
 		
 		//empno를 가져옴. 가져온 empno를 통해서 emp객체를 가져옴. 가져온 emp객체를 return하는 페이지로 전달
 		System.out.println("empDetail: "+empno);
@@ -84,7 +84,7 @@ public class CommonController {
 		
 		//model.addAttribute(emp);
 		model.addAttribute("employee", emp);
-		return "common/empDetail?empno="+empno;
+		return "common/empDetail";
 	}
 
 	

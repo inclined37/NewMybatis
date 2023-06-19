@@ -143,7 +143,6 @@ thead th {
 		$(".detail").click(function() {
 			  var empno = $(this).closest("tr").find("td:first").text();
 			  console.log("수정 버튼 클릭");
-			  console.log(empNo);
 			  window.location.href = "/MybatisProject/common/empDetail?empno=" + empno;
 		});
 	});
