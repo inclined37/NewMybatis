@@ -57,7 +57,6 @@ thead th {
 </head>
 <body>
 	<h1>Main Page</h1>
-	<button type="button" onclick="window.location='insert'">사원등록</button>
 	<table>
 		<thead>
 			<tr>
@@ -99,10 +98,41 @@ thead th {
 			</c:forEach>
 		</tbody>
 	</table>
+	<div>
+	
+		<input type="text" name="ename" value="검색어를 입력해주세요">
+		<button type="button" id="searchBtn">검색</button>
+		
+		<button type="button" onclick="window.location='insert'">사원등록</button>
+	</div>
 
 </body>
 <script>
 	$(document).ready(function() {
+		
+		$("#searchBtn").on('click',function(){
+			$.ajax({
+				url : "/MybatisProject/api/search",
+				type : "GET",
+				data : {
+					ename : $('#searchBtn').val()
+				},
+				success : function(response) {
+					console.log(response);
+					console.log("성공");
+				
+				},
+				error : function(xhr, status, error) {
+					console.log("실패");
+					console.log(status);
+				}
+			});
+			
+			
+		});
+		
+		
+		
 		$(".delete").click(function() {
 			var empNo = $(this).closest("tr").find("td:first").text();
 			console.log("삭제버튼 클릭");
