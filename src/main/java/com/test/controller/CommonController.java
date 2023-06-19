@@ -55,7 +55,7 @@ public class CommonController {
 		try {
 			empservice.updateEmp(emp);
 		} catch (Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return "common/main";
 	}
@@ -70,15 +70,21 @@ public class CommonController {
 	*/
 	
 	@GetMapping("empDetail")
-	public String empDetail() {
+	public String empDetail(String empno, Model model) {
 		
+		//empno를 가져옴. 가져온 empno를 통해서 emp객체를 가져옴. 가져온 emp객체를 return하는 페이지로 전달
+		System.out.println("empDetail: "+empno);
+		Emp emp = null;
+		try {
+			emp = empservice.getEmp(Integer.parseInt(empno));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
-		return "common/empDetail";
+		model.addAttribute(emp);
+		
+		return "common/empDetail?empno="+empno;
 	}
-	
-	
-	
-	
 	
 	
 }

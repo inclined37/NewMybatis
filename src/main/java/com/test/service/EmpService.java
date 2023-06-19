@@ -25,9 +25,20 @@ public class EmpService {
 			EmpDao empDao = sqlsession.getMapper(EmpDao.class);
 			list = empDao.getEmpList();
 		} catch (Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 		return list;
+	}
+	
+	public Emp getEmp(int empno) {
+		Emp emp = null;
+		try {
+			EmpDao empDao = sqlsession.getMapper(EmpDao.class);
+			emp = empDao.getEmp(empno);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return emp;
 	}
 	
 	public int insertEmp(Emp emp) {

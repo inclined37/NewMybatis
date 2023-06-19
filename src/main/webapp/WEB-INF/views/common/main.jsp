@@ -92,7 +92,7 @@ thead th {
 		<tbody>
 			<c:forEach items="${empList}" var="emp">
 				<tr>
-					 					<td>${emp.empno}</td>
+					<td>${emp.empno}</td>
 					<td>${emp.ename}</td>
 					<td>${emp.job}</td>
 					<td>${emp.mgr}</td>
@@ -139,9 +139,6 @@ thead th {
 			});
 		});
 
-		$("update").click(function() {
-
-		})
 	});
 </script>
 </html>
