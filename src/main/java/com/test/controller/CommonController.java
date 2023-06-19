@@ -81,8 +81,8 @@ public class CommonController {
 			System.out.println(e.getMessage());
 		}
 		
-		model.addAttribute(emp);
-		
+		//model.addAttribute(emp);
+		model.addAttribute("employee", emp);
 		return "common/empDetail?empno="+empno;
 	}
 	
