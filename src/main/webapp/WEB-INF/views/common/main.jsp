@@ -60,7 +60,6 @@ thead th {
 	<button type="button" onclick="common/insert">사원등록</button>
 	<table>
 		<thead>
-
 			<tr>
 				<th>EmpNo</th>
 				<th>EmpName</th>
