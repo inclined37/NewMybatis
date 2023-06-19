@@ -100,7 +100,7 @@ thead th {
 	</table>
 	<div>
 	
-		<input type="text" name="ename" value="검색어를 입력해주세요">
+		<input type="text" id="searchInputTag" name="ename" placeholder="검색어를 입력해주세요">
 		<button type="button" id="searchBtn">검색</button>
 		
 		<button type="button" onclick="window.location='insert'">사원등록</button>
@@ -115,7 +115,7 @@ thead th {
 				url : "/MybatisProject/api/search",
 				type : "GET",
 				data : {
-					ename : $('#searchBtn').val()
+					ename : $('#searchInputTag').val()
 				},
 				success : function(response) {
 					console.log(response);
