@@ -1,13 +1,19 @@
 package com.test.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -119,4 +125,43 @@ public class CommonController {
 		}
 		System.out.println(emp);
 	}
+
+	
+	
+	//Excel
+	@RequestMapping(value = "/empToExcel", method = RequestMethod.GET)
+	public void empToExcel(@RequestParam("empno") int empno, HttpServletResponse response) throws IOException {
+	    // 특정 사원의 데이터 가져오는 로직 구현
+	    Emp emp = empservice.getEmp(empno);
+	    
+	    // Excel 파일 생성
+	    HSSFWorkbook workbook = new HSSFWorkbook();
+	    HSSFSheet sheet = workbook.createSheet("Employee Data");
+	    
+	    // Excel 데이터 작성
+	    HSSFRow row = sheet.createRow(0);
+	    row.createCell(0).setCellValue("Employee No");
+	    row.createCell(1).setCellValue("Name");
+	    row.createCell(2).setCellValue("Department");
+	    // 추가 필드가 있다면 더 작성
+	    
+	    row = sheet.createRow(1);
+	    row.createCell(0).setCellValue(emp.getEmpno());
+	    row.createCell(1).setCellValue(emp.getEname());
+	    row.createCell(2).setCellValue(emp.getJob());
+	    // 추가 필드가 있다면 더 작성
+	    
+	    // Excel 파일 다운로드 설정
+	    response.setContentType("application/vnd.ms-excel");
+	    response.setHeader("Content-Disposition", "attachment; filename=employee_data.xls");
+	    
+	    // Excel 파일 출력
+	    workbook.write(response.getOutputStream());
+	    workbook.close();
+	}
+
+	
+	
+	
+
 }

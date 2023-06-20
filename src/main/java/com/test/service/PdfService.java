@@ -26,6 +26,7 @@ public class PdfService {
 			PdfWriter.getInstance(document, baos);
 			document.open();
 			
+
 			/*
 			float[] columnWidths = {50f, 30f, 20f}; // 각 열의 상대적인 너비
 			table.setWidths(columnWidths);
@@ -99,6 +100,7 @@ public class PdfService {
 			table.addCell(content8);
 			
 			
+
 			document.add(table);
 			document.close();
 			
