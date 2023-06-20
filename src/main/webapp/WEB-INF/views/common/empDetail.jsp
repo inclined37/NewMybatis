@@ -107,7 +107,6 @@
                 <label for="deptNo">DEPTNO:</label>
                 <input type="text" id="deptNo" name="deptno" value="${employee.deptno}">
             </div>
-            +
 
             <div class="form-group">
                 <button type="submit">Update</button>
@@ -116,8 +115,9 @@
             
             <div class="form-group">
             	<button type="button" onclick="window.location='pdfview?empno=${employee.empno}'">PDF 파일로 보기</button>
-            	<button type="button" onclick="window.location='empToExcel?empno=${employee.empno}'">XML 파일로 보기</button>
-            	<button type="button" onclick="">XML 파일로 보기</button>
+
+            	<button type="button" onclick="window.location='empToExcel?empno=${employee.empno}'">Excel 파일로 보기</button>
+
             </div>
         </form>
     </div>
