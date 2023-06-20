@@ -112,6 +112,12 @@
                 <button type="submit">Update</button>
                 <button type="button" onclick="location.href='/MybatisProject/common/main'">Back to Main</button>
             </div>
+            
+            <div class="form-group">
+            	<button type="button" onclick="window.location='pdfview?empno=${employee.empno}'">PDF 파일로 보기</button>
+            	<button type="button" onclick="">Excel 파일로 보기</button>
+            	<button type="button" onclick="">XML 파일로 보기</button>
+            </div>
         </form>
     </div>
 </body>

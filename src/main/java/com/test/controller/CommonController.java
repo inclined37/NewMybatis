@@ -1,7 +1,6 @@
 package com.test.controller;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.test.service.EmpService;
+import com.test.service.PdfService;
 import com.test.vo.Emp;
 
 /**
@@ -22,12 +23,20 @@ import com.test.vo.Emp;
 public class CommonController {
 	
 	private EmpService empservice;
+	private PdfService pdfservice;
 	
 	@Autowired
 	public void setEmpservice(EmpService empservice) {
 		this.empservice = empservice;
 	}
-
+	@Autowired
+	public void setPdfservice(PdfService pdfservice) {
+		this.pdfservice = pdfservice;
+	}
+	
+	
+	
+	
 	@GetMapping("main")
 	public String main(Model model) {
 		
@@ -95,4 +104,19 @@ public class CommonController {
 	}
 
 	
+	//PDF 뷰어
+	@RequestMapping("pdfview")
+	@ResponseBody
+	public void getEmpByPdf(@RequestParam("empno")String empno, HttpServletResponse response) {
+		//사원번호로 사원정보를 가져옴
+		System.out.println("empDetail: "+empno);
+		Emp emp = null;
+		try {
+			emp = empservice.getEmp(Integer.parseInt(empno));
+			pdfservice.createPdf(emp, response);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println(emp);
+	}
 }
