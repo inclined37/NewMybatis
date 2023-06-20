@@ -17,7 +17,8 @@ public class WelcomeController {
    @Autowired
    private MessageSource messageSource;
    
-   @RequestMapping("/welcome")
+   //@RequestMapping("/welcome")
+   @RequestMapping(value = {"/", "/welcome"})
    public String welcome(@RequestParam(name = "lang", required = false, defaultValue = "en") String language, Model model) {
        Locale locale = new Locale(language);
        String welcomeMessage = messageSource.getMessage("welcome.message", null, locale);
