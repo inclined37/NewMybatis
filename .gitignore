@@ -5,5 +5,4 @@ target/
 .project
 .springBeans
 
-
-root-context.xml
+db.properties
