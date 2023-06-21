@@ -33,8 +33,6 @@
    <property name="defaultEncoding" value="UTF-8" />
 </bean>
 
-
-
 <!-- 인터셉터 설정 -->
 <mvc:interceptors>
    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
