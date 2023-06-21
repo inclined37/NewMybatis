@@ -37,11 +37,10 @@
 </head>
 <body>
    <div class="language-buttons">
-      <button type="button" onclick="window.location='?lang=ko'">한국어</button>
-      <button type="button" onclick="window.location='?lang=en'">English</button>
+      <button type="button" onclick="window.location='?lang=ko'">${ko_btn}</button>
+      <button type="button" onclick="window.location='?lang=en'">${en_btn}</button>
    </div>
-
    <h1>${welcomeMessage}</h1>
-   <button type="button" onclick="window.location='common/main'">메인으로</button>
+   <button type="button" onclick="window.location='common/main'">${main_btn}</button>
 </body>
 </html>

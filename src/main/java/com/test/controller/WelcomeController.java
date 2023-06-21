@@ -17,10 +17,16 @@ public class WelcomeController {
    
    //@RequestMapping("/welcome")
    @RequestMapping(value = {"/", "/welcome"})
-   public String welcome(@RequestParam(name = "lang", required = false, defaultValue = "nomal") String language, Model model) {
+   public String welcome(@RequestParam(name = "lang", required = false, defaultValue = "ko") String language, Model model) {
        Locale locale = new Locale(language);
        String welcomeMessage = messageSource.getMessage("welcome.message", null, locale);
+       String ko_btn = messageSource.getMessage("korean.btn", null, locale);
+       String en_btn = messageSource.getMessage("English.btn", null, locale);
+       String main_btn = messageSource.getMessage("Main.btn", null, locale);
        model.addAttribute("welcomeMessage", welcomeMessage);
+       model.addAttribute("ko_btn", ko_btn);
+       model.addAttribute("en_btn", en_btn);
+       model.addAttribute("main_btn", main_btn);
        return "welcomePage";
    }
 }
