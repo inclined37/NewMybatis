@@ -23,7 +23,9 @@ public class WelcomeController {
        String ko_btn = messageSource.getMessage("korean.btn", null, locale);
        String en_btn = messageSource.getMessage("English.btn", null, locale);
        String main_btn = messageSource.getMessage("Main.btn", null, locale);
+       String title = messageSource.getMessage("title", null, locale);
        model.addAttribute("welcomeMessage", welcomeMessage);
+       model.addAttribute("title", title);
        model.addAttribute("ko_btn", ko_btn);
        model.addAttribute("en_btn", en_btn);
        model.addAttribute("main_btn", main_btn);
